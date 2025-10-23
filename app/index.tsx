@@ -22,16 +22,24 @@ export default function HomePage() {
 const Style = StyleSheet.create({
   view: {
     flex: 1,
-    backgroundColor: "white",
+  },
+  themeButton: {
+    padding: 15,
+    margin: 10,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  themeButtonText: {
+    fontSize: 16,
+    fontWeight: "bold",
   },
   container: {
     flex: 1,
-    backgroundColor: "white",
     padding: 10,
     borderRadius: 10,
     margin: 10,
     borderWidth: 1,
-    borderColor: "gray",
   },
   text: {
     fontSize: 16,
