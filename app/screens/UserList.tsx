@@ -1,10 +1,9 @@
-import { View, Text, FlatList, StyleSheet, TouchableOpacity } from "react-native";
-import CustomAppBar from "../components/appbar";
-import { router } from "expo-router";
-import axios from "axios";
-import { useState, useEffect } from "react";
 import { User } from "@/src/model/user";
- 
+import axios from "axios";
+import { router } from "expo-router";
+import { useEffect, useState } from "react";
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
 export default function UserList() {
     const [users, setUsers] = useState<User[]>([]);
     const [count, setCount] = useState(0);
@@ -28,11 +27,6 @@ export default function UserList() {
 
     return (
         <View style={Style.outerView}>
-            <CustomAppBar title="User List" onBackPress={
-                () => {
-                    router.back();
-                }
-            } />
             <FlatList
                 data={users}
                 keyExtractor={item => String((item as any).id)}
@@ -40,7 +34,10 @@ export default function UserList() {
                     <TouchableOpacity
                         style={Style.list}
                         onPress={() => {
-                            router.push(`/screens/UserDetail?user=${JSON.stringify(item)}`);
+                            router.push({
+                                pathname: "/screens/UserDetail",
+                                params: { userData: JSON.stringify(item) }
+                            });
                         }}
                     >
                         <Text style={{ color: "black" }}>{(item as any).name}</Text>

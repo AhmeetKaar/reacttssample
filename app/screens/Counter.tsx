@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import CustomAppBar from "../components/appbar";
 import { router } from "expo-router";
 import { useState } from "react";
 
@@ -8,9 +7,6 @@ export default function CounterScreen() {
 
     return (
         <View style={{ flex: 1, backgroundColor: "white" }}>
-            <CustomAppBar title="Counter" onBackPress={() => {
-                router.back();
-            }} />
             <View style={Style.centerContainer}>
                 <Text style={Style.text}>{count}</Text>
                 <View style={{ flexDirection: "row", gap: 20 }}>

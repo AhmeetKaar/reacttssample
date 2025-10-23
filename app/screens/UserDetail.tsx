@@ -1,10 +1,10 @@
-import { View, Text } from "react-native";
+import { userFromJson } from "@/src/model/user";
 import { useLocalSearchParams } from "expo-router";
-import { User } from "@/src/model/user";
+import { Text, View } from "react-native";
 
 export default function UserDetailScreen() {
-    const params = useLocalSearchParams<{ user: string }>();
-    const user: User | null = params.user ? JSON.parse(params.user) : null;
+    const params = useLocalSearchParams<{ userData: string }>();
+    const user = params.userData ? userFromJson(JSON.parse(params.userData)) : null;
 
     return (
         <View style={{ flex: 1, backgroundColor: "white" }}>

@@ -1,12 +1,10 @@
 import { router } from "expo-router";
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { ExampleList } from "../example_list";
-import CustomAppBar from "./components/appbar";
 
 export default function HomePage() {
   return (
     <View style={Style.view}>
-      <CustomAppBar title="Home" />
       <FlatList
         data={ExampleList}
         renderItem={({ item }) =>

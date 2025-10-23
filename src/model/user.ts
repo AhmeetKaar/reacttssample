@@ -11,3 +11,16 @@ export interface User {
   website: string;
   company: Company;
 }
+
+export function userFromJson(json: any): User {
+  return {
+    id: json.id,
+    name: json.name,
+    username: json.username,
+    email: json.email,
+    address: json.address,
+    phone: json.phone,
+    website: json.website,
+    company: json.company,
+  };
+}
