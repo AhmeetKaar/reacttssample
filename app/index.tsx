@@ -1,6 +1,6 @@
 import { router } from "expo-router";
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { ExampleList } from "../example_list";
+import { ExampleList } from "../page_list";
 
 export default function HomePage() {
   return (
@@ -11,7 +11,8 @@ export default function HomePage() {
           <TouchableOpacity style={Style.container}
             onPress={() => router.push(item.route as any)}
           >
-            <Text style={Style.text}>{item.level + ". " + item.name}</Text>
+            <Text style={Style.title}>{item.level + ". " + item.name}</Text>
+            <Text style={Style.description}>{ "• " + item.description}</Text>
           </TouchableOpacity>
         }
       />
@@ -41,8 +42,14 @@ const Style = StyleSheet.create({
     margin: 10,
     borderWidth: 1,
   },
-  text: {
+  title: {
+    paddingBottom: 5,
     fontSize: 16,
     fontWeight: "bold",
+  },
+  description: {
+    fontSize: 12,
+    fontWeight: "normal",
+    color: "black",
   },
 });

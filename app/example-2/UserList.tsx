@@ -35,7 +35,7 @@ export default function UserList() {
                         style={Style.list}
                         onPress={() => {
                             router.push({
-                                pathname: "/screens/UserDetail",
+                                pathname: "/example-2/UserDetail",
                                 params: { userData: JSON.stringify(item) }
                             });
                         }}
