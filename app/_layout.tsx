@@ -8,25 +8,29 @@ export default function ExpoRouter() {
         options={{
           headerShown: true,
           title: "Home",
-        }} />
+        }}
+      />
       <Stack.Screen
         name="example-1/Counter"
         options={{
           headerShown: true,
           title: "Counter",
-        }} />
+        }}
+      />
       <Stack.Screen
         name="example-2/UserList"
         options={{
           headerShown: true,
           title: "User List",
-        }} />
+        }}
+      />
       <Stack.Screen
         name="example-3/GlobalState"
         options={{
           headerShown: true,
           title: "Global State",
-        }} />
+        }}
+      />
     </Stack>
   );
 }
