@@ -25,6 +25,3 @@ Bu projede, farklı React Native özelliklerini ve kullanım örneklerini göste
 - React Context API ile global state yönetimi örneği (useContext kullanımı)
 
 ---
-
-Daha fazla örnek eklemek ve projeyi geliştirmek için katkıda bulunabilirsiniz!
-Ek açıklamalar veya sorularınız için lütfen projenin ilgili sayfasına göz atınız veya iletişime geçiniz.
