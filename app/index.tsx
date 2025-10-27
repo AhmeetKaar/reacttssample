@@ -1,5 +1,11 @@
 import { router } from "expo-router";
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { ExampleList } from "../page_list";
 
 export default function HomePage() {
@@ -7,14 +13,15 @@ export default function HomePage() {
     <View style={Style.view}>
       <FlatList
         data={ExampleList}
-        renderItem={({ item }) =>
-          <TouchableOpacity style={Style.container}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={Style.container}
             onPress={() => router.push(item.route as any)}
           >
             <Text style={Style.title}>{item.level + ". " + item.name}</Text>
-            <Text style={Style.description}>{ "• " + item.description}</Text>
+            <Text style={Style.description}>{"• " + item.description}</Text>
           </TouchableOpacity>
-        }
+        )}
       />
     </View>
   );
