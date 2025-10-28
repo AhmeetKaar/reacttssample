@@ -19,9 +19,13 @@ Bu projede, farklı React Native özelliklerini ve kullanım örneklerini göste
 
 ---
 
-## 3. Global Durum Yönetimi ("Global State")
-**Bulunan Sayfa:** `/example-3/GlobalState`  
+## 3. Kimlik Doğrulama ve Tema Yönetimi ("Auth & Theme")
+**Bulunan Sayfa:** `/example-3/HomePage`  
 **Açıklama:**  
-- React Context API ile global state yönetimi örneği (useContext kullanımı)
+- React Context API ile global state yönetimi (useContext kullanımı)
+- Tema değiştirme (light/dark mode)
+- Mock veriler ile kullanıcı girişi doğrulama
+- Router ile sayfalar arası geçiş (HomePage ↔ AuthPage)
+- Global auth state yönetimi
 
 ---
