@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { router } from "expo-router";
 import { useAppContext } from "./context/AppContext";
+import loc from "../localization/localization";
 
 export default function HomePage() {
   const { theme, setTheme } = useAppContext();
@@ -12,7 +13,7 @@ export default function HomePage() {
       <View style={Style.row}>
         <TouchableOpacity onPress={() => router.push("/example-3/AuthPage")}>
           <Text style={[Style.buttonText, { color: buttonColor }]}>
-            Auth User
+            {loc.t("signIn")}
           </Text>
         </TouchableOpacity>
       </View>
@@ -20,7 +21,7 @@ export default function HomePage() {
       <View style={Style.row}>
         <TouchableOpacity onPress={setTheme}>
           <Text style={[Style.buttonText, { color: buttonColor }]}>
-            Theme Toggle
+            {loc.t("theme")}
           </Text>
         </TouchableOpacity>
       </View>

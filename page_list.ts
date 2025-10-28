@@ -1,25 +1,25 @@
+import loc from "./app/localization/localization";
+
 export const ExampleList = [
   {
     id: 1,
     level: 1,
-    name: "Counter",
-    description: "The following were consolidated on this page: useState usage",
+    name: loc.t("counter"),
+    description: loc.t("counterDescription"),
     route: "/example-1/Counter",
   },
   {
     id: 2,
     level: 2,
-    name: "User List",
-    description:
-      "The following were consolidated on this page: axios usage, useEffect usage, useState usage, router usage, passing parameters via props (useLocalSearchParams)",
+    name: loc.t("userList"),
+    description: loc.t("userListDescription"),
     route: "/example-2/UserList",
   },
   {
     id: 3,
     level: 3,
-    name: "User Auth && Theme Toggle (useContext)",
-    description:
-      "The following were consolidated on this page: user auth usage (useContext), theme toggle usage (useContext)",
+    name: loc.t("userAuthAndThemeToggle"),
+    description: loc.t("userAuthAndThemeToggleDescription"),
     route: "/example-3/HomePage",
   },
 ];

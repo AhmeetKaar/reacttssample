@@ -1,21 +1,23 @@
 import { router } from "expo-router";
 import { useState } from "react";
 import { Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
-import { useAppContext } from "./context/AppContext";
+import { useAppContext, Theme } from "./context/AppContext";
+import loc from "../localization/localization";
+
 export default function AuthPage() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
   const { signIn, theme } = useAppContext();
 
-  const backgroundColor = theme === "light" ? "white" : "lightblue";
-  const buttonColor = theme === "light" ? "lightblue" : "blue";
-  const textColor = theme === "light" ? "white" : "black";
-  const inputBorderColor = theme === "light" ? "gray" : "black";
+  const backgroundColor = theme === Theme.Light ? "white" : "lightblue";
+  const buttonColor = theme === Theme.Light ? "lightblue" : "blue";
+  const textColor = theme === Theme.Light ? "black" : "white";
+  const inputBorderColor = theme === Theme.Light ? "black" : "white";
 
   function handleSignIn() {
     if (!email || !username || !phone) {
-      Alert.alert("Hata", "Lütfen Tüm Alanları Doldurun");
+      Alert.alert(loc.t("loginErrorTitle"), loc.t("loginErrorMessage"));
       return;
     }
 
@@ -28,24 +30,22 @@ export default function AuthPage() {
     const success = signIn(userToSignIn);
 
     if (success) {
-      Alert.alert("Başarılı", "Giriş başarılı!", [
+      Alert.alert(loc.t("loginSuccessTitle"), loc.t("loginSuccessMessage"), [
         {
           onPress: () => router.back(),
         },
       ]);
     } else {
-      Alert.alert(
-        "Hata",
-        "Kullanıcı bulunamadı. Lütfen bilgilerinizi kontrol edin.",
-      );
+      Alert.alert(loc.t("loginErrorTitle"), loc.t("loginErrorMessage"));
     }
   }
 
   return (
     <View style={[styles.container, { backgroundColor: backgroundColor }]}>
-      <Text style={styles.headerText}>Sign In</Text>
+      <Text style={styles.headerText}>{loc.t("signIn")}</Text>
       <TextInput
-        placeholder="Email"
+        placeholder={loc.t("email")}
+        placeholderTextColor={textColor}
         value={email}
         onChangeText={setEmail}
         style={[styles.input, { borderColor: inputBorderColor }]}
@@ -53,21 +53,27 @@ export default function AuthPage() {
         autoCapitalize="none"
       />
       <TextInput
-        placeholder="User Name"
+        placeholder={loc.t("userName")}
+        placeholderTextColor={textColor}
         value={username}
         onChangeText={setUsername}
         style={[styles.input, { borderColor: inputBorderColor }]}
         autoCapitalize="none"
       />
       <TextInput
-        placeholder="Phone Number"
+        placeholder={loc.t("phoneNumber")}
+        placeholderTextColor={textColor}
         value={phone}
         onChangeText={setPhone}
         style={[styles.input, { borderColor: inputBorderColor }]}
         keyboardType="phone-pad"
       />
       <View style={[styles.buttonContainer, { backgroundColor: buttonColor }]}>
-        <Button title="Sign In" onPress={handleSignIn} color={textColor} />
+        <Button
+          title={loc.t("signIn")}
+          onPress={handleSignIn}
+          color={textColor}
+        />
       </View>
     </View>
   );

@@ -1,9 +1,15 @@
 import { User } from "@/src/model/user";
 import { createContext, useContext, useState } from "react";
 import { mockUsers } from "../mock/user_mock";
+import loc from "../../localization/localization";
+
+export enum Theme {
+  Light = "light",
+  Dark = "dark",
+}
 
 type AppContextType = {
-  theme: "light" | "dark";
+  theme: Theme;
   setTheme: () => void;
   authUser: User | null;
   signIn: (user: Partial<User>) => boolean;
@@ -15,17 +21,17 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export function useAppContext() {
   const context = useContext(AppContext);
   if (context === undefined) {
-    throw new Error("Error: useAppContext must be used within an AppProvider");
+    throw new Error(loc.t("useAppContextError"));
   }
   return context;
 }
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setToggle] = useState<"light" | "dark">("light");
+  const [theme, setToggle] = useState<Theme>(Theme.Light);
   const [authUser, setAuthUser] = useState<User | null>(null);
 
   function setTheme() {
-    setToggle(theme === "light" ? "dark" : "light");
+    setToggle(theme === Theme.Light ? Theme.Dark : Theme.Light);
   }
 
   function signIn(user: Partial<User>): boolean {

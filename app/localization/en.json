@@ -1,0 +1,25 @@
+{
+    "@_EXAMPLE_1": {},
+    "counter": "Counter",
+    "counterDescription": "The following were consolidated on this page: useState usage",
+    "increment": "Increment",
+    "decrement": "Decrement",
+
+    "@_EXAMPLE_2": {},
+    "userList": "User List",
+    "userListDescription": "The following were consolidated on this page: axios usage, useEffect usage, useState usage, router usage, passing parameters via props (useLocalSearchParams)",
+
+    "@_EXAMPLE_3": {},
+    "userAuthAndThemeToggle": "User Auth && Theme Toggle",
+    "userAuthAndThemeToggleDescription": "The following were consolidated on this page: user authentication usage, theme toggle usage (useContext)",
+    "signIn": "Sign In",
+    "theme": "Theme",
+    "userName": "User Name",
+    "email": "Email",
+    "phoneNumber": "Phone Number",
+    "loginSuccessTitle": "Success",
+    "loginSuccessMessage": "Login successful!",
+    "loginErrorTitle": "Error",
+    "loginErrorMessage": "User not found. Please check your information.",
+    "useAppContextError": "Error: useAppContext must be used within an AppProvider"
+}

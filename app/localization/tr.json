@@ -1,0 +1,26 @@
+{
+    "@_EXAMPLE_1": {},
+    "counter": "Sayaç",
+    "counterDescription": "Bu sayfada birleştirilenler: useState kullanımı",
+    "increment": "Arttır",
+    "decrement": "Azalt",
+
+    "@_EXAMPLE_2": {},
+    "userList": "Kullanıcı Listesi",
+    "userListDescription": "Bu sayfada birleştirilenler: axios kullanımı, useEffect kullanımı, useState kullanımı, router kullanımı, props ile parametre gönderimi (useLocalSearchParams)",
+
+    "@_EXAMPLE_3": {},
+    "userAuthAndThemeToggle": "Kullanıcı Auth && Tema Değiştirme",
+    "userAuthAndThemeToggleDescription": "Bu sayfada birleştirilenler: kullanıcı kimlik doğrulama kullanımı, tema değiştirme kullanımı (useContext)",
+    "signIn": "Giriş Yap",
+    "theme": "Tema",
+    "userName": "Kullanıcı Adı",
+    "email": "E-posta",
+    "phoneNumber": "Telefon Numarası",
+    "loginSuccessTitle": "Başarılı",
+    "loginSuccessMessage": "Giriş başarılı!",
+    "loginErrorTitle": "Hata",
+    "loginErrorMessage": "Kullanıcı bulunamadı. Lütfen bilgilerinizi kontrol edin.",
+    "useAppContextError": "Hata: useAppContext yalnızca bir AppProvider içinde kullanılmalıdır"
+
+}

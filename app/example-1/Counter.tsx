@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import loc from "../localization/localization";
 
 export default function CounterScreen() {
   const [count, setCount] = useState(0);
@@ -18,10 +19,10 @@ export default function CounterScreen() {
         <Text style={Style.text}>{count}</Text>
         <View style={{ flexDirection: "row", gap: 20 }}>
           <TouchableOpacity style={Style.buttonContainer} onPress={decrement}>
-            <Text>Decrement</Text>
+            <Text>{loc.t("decrement")}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={Style.buttonContainer} onPress={increment}>
-            <Text>Increment</Text>
+            <Text>{loc.t("increment")}</Text>
           </TouchableOpacity>
         </View>
       </View>
