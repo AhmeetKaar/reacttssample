@@ -1,15 +1,24 @@
 import { User } from "@/src/model/user";
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import { mockUsers } from "../mock/user_mock";
 
 type AppContextType = {
   theme: "light" | "dark";
   setTheme: () => void;
   authUser: User | null;
-  signIn: (user: User) => void;
+  signIn: (user: Partial<User>) => boolean;
   signOut: () => void;
 };
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
+
+export function useAppContext() {
+  const context = useContext(AppContext);
+  if (context === undefined) {
+    throw new Error("Error: useAppContext must be used within an AppProvider");
+  }
+  return context;
+}
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [theme, setToggle] = useState<"light" | "dark">("light");
@@ -19,8 +28,21 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setToggle(theme === "light" ? "dark" : "light");
   }
 
-  function signIn(user: User) {
-    setAuthUser(user);
+  function signIn(user: Partial<User>): boolean {
+    const findUser = mockUsers.find(
+      (u) =>
+        u.email === user.email &&
+        u.username === user.username &&
+        u.phone === user.phone,
+    );
+
+    if (findUser) {
+      setAuthUser(findUser);
+      return true;
+    } else {
+      signOut();
+      return false;
+    }
   }
 
   function signOut() {
